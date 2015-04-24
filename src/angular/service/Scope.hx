@@ -54,10 +54,13 @@ extern class Scope
 
 	public inline function safeApply(f:Void->Void):Void
 	{
-		var phase = this.root.phase;
-
-		if(phase == "$apply" || phase == "$digest") {
-			eval(f);
+		if (this.root != null) {
+			var phase = this.root.phase;
+			if(phase == "$apply" || phase == "$digest") {
+				eval(f);
+			} else {
+				this.apply(f);
+			}			
 		} else {
 			this.apply(f);
 		}
