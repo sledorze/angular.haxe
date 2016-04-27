@@ -66,4 +66,7 @@ extern class Scope
 		}
 	}
 
+	// Dialog specific
+	public function closeThisDialog(value : Dynamic): Void;
+
 }
