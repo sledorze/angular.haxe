@@ -66,6 +66,16 @@ extern class Scope
 		}
 	}
 
+	public inline function safeDigest():Void
+	{
+		if (this.root != null) {
+			var phase = this.root.phase;
+			if(phase != "$digest") {
+				this.digest();
+			}			
+		}
+	}
+
 	// Dialog specific
 	public function closeThisDialog(value : Dynamic): Void;
 
